@@ -1,0 +1,44 @@
+{
+  "name": "api_splitrisk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node src/index.js",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "prisma": "npx prisma db pull && npx prisma generate",
+    "babel-node-version": "babel-node --version"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/register": "^7.15.3",
+    "@prisma/client": "^3.8.1",
+    "aws-sdk": "^2.1032.0",
+    "axios": "^0.24.0",
+    "babel-cli": "^7.0.0-0",
+    "babel-node": "^0.0.1-security",
+    "base-64": "^1.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "format": "^0.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment-timezone": "^0.5.34",
+    "nanoid": "^3.1.30",
+    "prisma": "^3.7.0",
+    "scrape-it": "^5.3.2",
+    "swagger-ui-express": "^4.2.0",
+    "uuid": "^8.3.2",
+    "webpack-dev-server": "^4.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
