@@ -51,7 +51,7 @@ module.exports = {
 
     if (!finduser || finduser.deleted_at !== null) return res.status(404).send({ error: 'Usuário não encontrado!' });
 
-    if (!(await bcrypt.compare(password, finduser.password))) return res.status(401).send({ error: 'Senha incorreta!' });
+    if (password !== finduser.password) return res.status(401).send({ error: 'Senha incorreta!' });
 
     delete finduser.password;
     const token = jwt.sign({ ...finduser }, secret);
