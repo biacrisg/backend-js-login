@@ -9,7 +9,7 @@ Aplicação proposta como teste da empresa LuizaLabz. Aplicação criada com Nod
   $ npm install nodemon@1.10.2 --dev
     
 # Configurando o banco de dados e a criação de tabelas.
-  $ npx prima generate
+  $ npx prisma generate
   
 # Inicie a API
   $ npm run dev
