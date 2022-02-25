@@ -7,7 +7,7 @@ const routes = express.Router();
 //ROUTES
 
 routes.get('/', (req, res) => {
-  res.status(200).send({ status: 'Welcome Split Risk REST API' });
+  res.status(200).send({ status: 'It works' });
 });
 
 // Users
