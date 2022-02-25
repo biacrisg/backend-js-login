@@ -20,7 +20,6 @@ module.exports = {
 
     if (exists) return res.status(400).json({ error: 'Usuário já cadastrado!' });
 
-    const password = cpf.substring(5, 11);
     const hashedPassword = await bcrypt.hash(password, 10);
     const codeLogin = nanoid();
 
