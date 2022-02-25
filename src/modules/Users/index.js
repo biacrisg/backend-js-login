@@ -11,11 +11,11 @@ const nanoid = customAlphabet('123456789ABCDFGHIJKLMQRSTUVWXYZ', 25);
 module.exports = {
 
   async createUser(req, res) {
-    const { name, email, birthdate, cpf, phone, passwor } = req.body;
+    const { name, email,user,  password } = req.body;
     const { userData } = req;
 
     const exists = await prisma.tB_USERS.findFirst({
-      where: { OR: [{ cpf }, { email }] },
+      where: { OR: [{ user }, { email }] },
     });
 
     if (exists) return res.status(400).json({ error: 'Usuário já cadastrado!' });
@@ -27,17 +27,14 @@ module.exports = {
     const resp = await prisma.tB_USERS.create({
       data: {
         name,
-        birthdate,
+        user,
         cpf,
-        phone,
         email,
         password: hashedPassword,
         code: codeLogin,
-        TB_PARTNERS: { connect: { id: userData.id_partner } },
       },
     });
 
-    const createWalletCode = await createWalletUser(resp.id);
 
     delete resp.password;
 
