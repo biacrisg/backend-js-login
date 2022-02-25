@@ -11,7 +11,7 @@ const nanoid = customAlphabet('123456789ABCDFGHIJKLMQRSTUVWXYZ', 25);
 module.exports = {
 
   async createUser(req, res) {
-    const { name, email, birthdate, cpf, phone, passwor } = req.body;
+    const { name, email, cpf, user} = req.body;
     const { userData } = req;
 
     const exists = await prisma.tB_USERS.findFirst({
@@ -27,13 +27,11 @@ module.exports = {
     const resp = await prisma.tB_USERS.create({
       data: {
         name,
-        birthdate,
         cpf,
-        phone,
         email,
+        user,
         password: hashedPassword,
         code: codeLogin,
-        TB_PARTNERS: { connect: { id: userData.id_partner } },
       },
     });
 

@@ -1,9 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import routes from './routes';
+import cookieParser from 'cookie-parser';
+
 
 
 const app = express();
+
+const baseDir = `${__dirname}/loginUser`;
+app.use(cookieParser());
+app.use(express.static(`loginUser`));
+
 
 app.use(cors());
 app.use(express.json());
