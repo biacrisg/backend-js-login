@@ -43,14 +43,14 @@ module.exports = {
   async login(req, res) {
     const { user, password } = req.body;
 
-    const finduser = await prisma.tB_USERS.findFirst({ where: { user } });
+    // const finduser = await prisma.tB_USERS.findFirst({ where: { user } });
 
-    if (!finduser || finduser.deleted_at !== null) return res.status(404).send({ error: 'Usuário não encontrado!' });
+    // if (!finduser || finduser.deleted_at !== null) return res.status(404).send({ error: 'Usuário não encontrado!' });
 
-    if (password !== finduser.password) return res.status(401).send({ error: 'Senha incorreta!' });
+    if (password !== 'senha') return res.status(401).send({ error: 'Senha incorreta!' });
 
-    delete finduser.password;
-    const token = jwt.sign({ ...finduser }, secret);
+    // delete finduser.password;
+    const token = jwt.sign({  }, secret);
 
     res.status(200).send({ success: true, token });
   }
